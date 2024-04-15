@@ -77,6 +77,12 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough? <br>
+Jawab: Menurut saya, pada BambangShop terdapat impelementasi class Subscriber yang pada kasus ini hanya terdiri atas satu class saja sehingga penggunaan observer design pattern, dalam hal ini penggunaan trait masih tidak perlu dilakukan. Jika nantinya terdapat observer lain, maka trait sebaiknya digunakan untuk memudahkan pemeliharaan kode hingga memudahkan pembuatan testing
+2. id in Program and url in Subscriber is intended to be unique. Explain based on your understanding, is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case? <br>
+Jawab: Menurut saya, penggunaan DashMap pada BambangShop ini lebih baik digunakan dibanding penggunaan Vec. Hal ini karena penggunaan DashMap dapat memungkinkan pemetaan tiap jenis produk ke tiap subscriber yang menginginkannya. Sementara itu, jika kita menggunakan Vec maka kita memerlukan lebih dari 1 vector untuk menyimpan url dan subscribernya sehingga akan lebih tidak efisien dibanding ketika menggunakan DashMap
+3. When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. Explain based on your understanding of design patterns, do we still need DashMap or we can implement Singleton pattern instead? <br>
+Jawab: Menurut saya, saat melakukan programming dengan menggunakan Rust penggunaan DashMap cocok diimplementasikan untuk kasus yang melibatkan multithreading seperti pada kasus BambangShop ini, dimana map SUBSCRIBER akan diakses oleh banyak thread. Jika kita mengimplementasikan singleton pattern, implementasi pattern tersebut akan tidak sesuai dengan prinsip pemrograman Rust yang memiliki aturan ownership dan borrowing sehingga akan diperlukan tambahan sistem untuk sinkronisasi pada program
 
 #### Reflection Publisher-2
 
