@@ -93,3 +93,9 @@ Jawab: Jika kita hanya menggunakan model saja, maka kode yang kita miliki akan l
 Jawab: Berdasarkan eksplorasi yang saya lakukan pada postman, menurut saya penggunaan postman dapat memudahkan seorang developer untuk mengetahui respons balik dari suatu kode program yang dibuat. Selain itu, postman memiliki suatu fitur menarik yang dapat memungkinkan penggunanya untuk memlih jenis bahasa untuk melihat hasil keluaran suatu endpoint yang ingin dilihat format responsnya
 
 #### Reflection Publisher-3
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use? <br>
+Jawab: Pada tutorial ini, variasi observer pattern yang digunakan adalah push model yang dapat terlihat dimana notification service akan memanggil method yang akan melakukan iterasi setiap subscriber untuk mendapatkan update terbaru ketika dilakukan create, delete, atau update pada model objek
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull) <br>
+Jawab: Misal jika kita menggunakan pull model sebagai observer pattern, sebenarnya terdapat keuntungan dimana subscriber akan melakukan request update hanya saat dibutuhkan sehingga overhead dapat teratasi. Namun, dengan menggunakan variasi ini, terdapat pula kekurangan dimana pengiriman notification tidak dapat dilakukan secara real time
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process. <br>
+Jawab: Jika program tidak menggunakan multi-threading, akibatnya akan terjadi antrian ketika dilakukan pengiriman notifikasi sehingga akan terjadi delay yang dapat berpengaruh kepada performa program
